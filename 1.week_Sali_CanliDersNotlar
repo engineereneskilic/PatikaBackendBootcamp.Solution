@@ -1,0 +1,20 @@
+IDE (INTEGRATED DEVELOPMENT ENVIROMENT)
+.NET YÜKLÜ OLMALI
+
+.NET YAZILIM GELÝÞTÝRME ÝÇÝN NE GEREKLÝ ?
+- IDE
+- .NET SDK ;(SOFTWARE DEVELOPMENT KIT)
+
+sqllocaldb info
+MSSQLDB
+
+ctrl + f5 yapýnca gerçek hayatta kullanýcý ne hata görüyorsa o
+
+f5 kodlayýcý hatasý
+
+ctrl k + c ile  comment yap
+ctrl k + u ile comment kaldýr
+
+ctrl k + d ile kod düzenle
+
+ctrl. hýzlý çözüm menüsü

@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34616.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.week_1_PatikaFirstProgram", "1.week_PatikaFirstProgram\1.week_1_PatikaFirstProgram.csproj", "{9C7C08CA-64DB-49C4-B6D3-BAF5FDD4153C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.week_2_Variables", "1.week_2_Variables\1.week_2_Variables.csproj", "{ED346824-256E-4440-9B2E-8C5AE19D7C34}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2ED50986-45EF-43EE-A762-E64FC4B9D0E9}"
+	ProjectSection(SolutionItems) = preProject
+		1.week_Sali_CanliDersNotlar = 1.week_Sali_CanliDersNotlar
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C7C08CA-64DB-49C4-B6D3-BAF5FDD4153C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C7C08CA-64DB-49C4-B6D3-BAF5FDD4153C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C7C08CA-64DB-49C4-B6D3-BAF5FDD4153C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C7C08CA-64DB-49C4-B6D3-BAF5FDD4153C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED346824-256E-4440-9B2E-8C5AE19D7C34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED346824-256E-4440-9B2E-8C5AE19D7C34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED346824-256E-4440-9B2E-8C5AE19D7C34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED346824-256E-4440-9B2E-8C5AE19D7C34}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE75E94F-9D92-4555-8BC4-C84C2A9F3FBB}
+	EndGlobalSection
+EndGlobal
