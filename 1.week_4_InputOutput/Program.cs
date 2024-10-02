@@ -12,6 +12,8 @@ namespace _1.week_4_InputOutput
 
             Console.Write("Lütfen isminizi yazınız:");
             string isim = Console.ReadLine();
+
+            Console.WriteLine("Merhaba "+ isim );
         }
     }
 }
