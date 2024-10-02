@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace inputOutput
+namespace _1.week_4_InputOutput
 {
     internal class Program
     {
@@ -12,10 +12,6 @@ namespace inputOutput
 
             Console.Write("Lütfen isminizi yazınız:");
             string isim = Console.ReadLine();
-
-
-
-
         }
     }
 }
