@@ -33,6 +33,16 @@ namespace _1.week_7_PRATIK_if_else
                 Console.WriteLine("Sayı 10'dan büyüktür");
             }
 
+            // 2.kontrol yapısı
+            // girilen sayının 2 ile bölümünden kalan(mod alma) sıfıra eşitse bu durumda sayı tam bölünüyor demektir. Bu durumda sayımız çifttir
+            if (sayi % 2 == 0)
+            {
+                Console.WriteLine("Girilen sayı çifttir.");
+            } else  // girilen sayının 2 ile bölümünden kalan sıfırdan farklı bir sayıysa 2'ye tam olarak bölünemediği için çift değil tek sayı diyebiliriz
+            {
+                Console.WriteLine("Girilen sayı tektir.");
+            }
+
         }
     }
 }
