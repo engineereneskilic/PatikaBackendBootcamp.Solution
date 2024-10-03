@@ -117,6 +117,8 @@ Console.WriteLine($"Seçtiğiniz meyvenin fiyatı: {fiyat_} TL");
     ```
 4. Kullanıcıya sunulan meyvelerden birini seçin ve fiyat bilgisini görün.
 
+## Explanation
+Bu tür bir problemi çözmek için if-else yapısını kullanmak, karmaşık koşullar ve aralık kontrolleri için daha uygundur. Öte yandan, belirli ve sabit değerlerle çalıştığımızda switch-case yapısı daha okunabilir ve yönetilebilir bir çözüm sunar. Yani, meyve fiyatları gibi sınırlı seçenekler için switch-case, daha karmaşık durumlar için ise if-else tercih edilmelidir.
 ## License
 
 Bu proje MIT lisansı altında lisanslanmıştır. Kullanım ve dağıtım serbesttir.
