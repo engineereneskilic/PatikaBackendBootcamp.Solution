@@ -21,11 +21,11 @@ namespace _1.week_PERSEMBE_s04
             // Mod operatörü bir sayının 2'ye bölündüğünde kalanını verir
             if (sayi % 2 == 0) // Eğer sayı 2'ye tam bölünüyorsa, bu sayı çifttir
             {
-                Console.WriteLine("Çift sayıdır."); // Eğer sayı çift ise bu mesajı yazdırıyoruz
+                Console.WriteLine("Çift sayıdır.."); // Eğer sayı çift ise bu mesajı yazdırıyoruz
             }
             else // Sayı 2'ye bölünmüyorsa, bu sayı tektir
             {
-                Console.WriteLine("Tek sayıdır."); // Eğer sayı tek ise bu mesajı yazdırıyoruz
+                Console.WriteLine("Tek sayıdır.."); // Eğer sayı tek ise bu mesajı yazdırıyoruz
             }
 
             // Program sonlanmadan önce kullanıcıdan bir tuşa basmasını bekliyoruz
