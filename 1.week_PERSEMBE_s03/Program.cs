@@ -22,7 +22,7 @@ namespace _1.week_PERSEMBE_s03
             // Eğer yaş 18 veya daha büyükse, kullanıcıya "Yetişkinsiniz" mesajı gösteriyoruz
             if (yas >= 18)
             {
-                Console.WriteLine("Yetişkinsiniz."); // Kullanıcı yetişkinse bu mesajı gösteriyoruz
+                Console.WriteLine("Yetişkinsiniz.."); // Kullanıcı yetişkinse bu mesajı gösteriyoruz
             }
             else
             {
