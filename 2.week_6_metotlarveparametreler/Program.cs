@@ -16,7 +16,7 @@ namespace _2.week_6_metotlarveparametreler
                 toplam += notlar[i];
             }
 
-            double ortalama = toplam / notlar.Length;
+            double ortalama = (double)(toplam) / (double)notlar.Length;
 
             return ortalama;
 
