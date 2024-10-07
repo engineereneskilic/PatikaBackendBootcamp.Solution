@@ -21,8 +21,6 @@ namespace _2.week_6_metotlarveparametreler
             return ortalama;
 
         }
-
-      
     }
    
 
