@@ -16,8 +16,6 @@ namespace _2.week_11_ref
             Console.WriteLine($"Metottan sonraki değer:{deger}");
 
            
-
-
             void DegerleriDegistir(ref int a, ref int b)
             {
                 int temp = a;
@@ -35,6 +33,30 @@ namespace _2.week_11_ref
 
             Console.WriteLine($"Sayı 2: {sayi2}");
 
+
+            void DiziElemanlariniIkiKatinaCikar(ref int[] dizi)
+            {
+                for (int i = 0; i < dizi.Length; i++)
+                {
+                    dizi[i] += 2;
+                }
+            }
+
+            int[] sayilar = { 1, 2, 3, 4 };
+
+            DiziElemanlariniIkiKatinaCikar(ref sayilar);
+
+            Console.WriteLine($"Dizi: {string.Join(",",sayilar)}");
+
+
+            void FiyatGuncelle(ref double fiyat, int yuzde)
+            {
+                fiyat += fiyat * (yuzde / 100);
+;           }
+
+            double urunFiyati = 100.0;
+            FiyatGuncelle(ref urunFiyati, 18);
+            Console.WriteLine($"KDV li fiyat: {urunFiyati}");
 
             Console.ReadKey();
 
