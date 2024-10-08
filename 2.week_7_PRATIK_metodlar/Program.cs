@@ -84,5 +84,4 @@ namespace _2.week_7_PRATIK_metodlar
             }
         }
     }
-    }
 }
