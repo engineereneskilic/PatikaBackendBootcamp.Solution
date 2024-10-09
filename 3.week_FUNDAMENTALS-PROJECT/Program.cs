@@ -212,7 +212,7 @@ namespace _3.week_FUNDAMENTALS_PROJECT
             else if (average >= 60)
                 return "DD";
             else if (average >= 55)
-                return "FD";
+                return "FD"; 
             else
                 return "FF"; // Default case for average below 55
         }
