@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>_4.week_2_Fieds_Methods_Product</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\4.week_2_Fieds-Methods\4.week_2_Fieds-Methods.csproj" />
+  </ItemGroup>
+
+</Project>
