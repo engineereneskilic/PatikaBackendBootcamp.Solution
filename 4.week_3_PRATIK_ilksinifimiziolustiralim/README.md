@@ -1,5 +1,5 @@
 
-# Product Management Console Application
+# Okul Yönetim Sistemi - Person Sınıfı
 
 ## Table of Contents
 
@@ -13,97 +13,98 @@
 
 ## Introduction
 
-This project is a basic console application for managing products such as laptops and phones. 
-It allows users to perform operations such as displaying product details, selling products, 
-and restocking products.
+Bu proje, bir okul yönetim sistemi içerisinde öğrencilerin ve öğretmenlerin bilgilerini yönetmek için genel bir sınıf olan `Person` sınıfının oluşturulmasını içermektedir. `Person` sınıfı, temel kişisel bilgileri tutmak amacıyla tasarlanmıştır: Ad, Soyad, Doğum Tarihi.
 
 ## Technologies
 
-- C#
+- C# Programming Language
 - .NET Core
 
 ## Code Overview
 
-### Classes and Methods
+### 1. `Person` Sınıfı
 
-The project has a `Product` class that models the basic properties of a product such as name, price, and stock.
+`Person` sınıfı, öğrenci ve öğretmenlerin ortak özelliklerini tutan bir temel sınıf olarak tasarlanmıştır. Bu sınıf aşağıdaki özelliklere sahiptir:
 
-- **Fields:**
-  - `name`: Stores the name of the product.
-  - `price`: Stores the price of the product. It has validation to ensure the price is non-negative.
-  - `stock`: Stores the stock quantity of the product. It has validation to ensure the stock is non-negative.
+- **Ad**: Kişinin adı
+- **Soyad**: Kişinin soyadı
+- **Doğum Tarihi**: Kişinin doğum tarihi
 
-- **Methods:**
-  - `DisplayProduct()`: Displays the product's current details.
-  - `SellProduct(int quantity)`: Decreases the stock by the given quantity if sufficient stock is available.
-  - `RestockProduct(int quantity)`: Increases the stock by the given quantity.
+#### C# Kodu:
+
+```csharp
+// Person sınıfını oluşturuyoruz.
+// Bu sınıf, öğrenciler ve öğretmenler için ortak olan bilgileri tutar.
+public class Person
+{
+    // Kişinin adı
+    private string ad;
+
+    // Kişinin soyadı
+    private string soyad;
+
+    // Kişinin doğum tarihi
+    private DateTime dogumTarihi;
+
+    // Ad property'si (get/set)
+    public string Ad
+    {
+        get { return ad; }
+        set { ad = value; }
+    }
+
+    // Soyad property'si (get/set)
+    public string Soyad
+    {
+        get { return soyad; }
+        set { soyad = value; }
+    }
+
+    // Doğum Tarihi property'si (get/set)
+    public DateTime DogumTarihi
+    {
+        get { return dogumTarihi; }
+        set { dogumTarihi = value; }
+    }
+}
+```
 
 ## Usage
 
-To use the application, simply run the console program. The program will display product details, sell a certain amount, and restock products based on the hardcoded data in the `Main` method.
+Bu sınıf, öğrenci ve öğretmenlerin bilgilerini yönetmek için kullanılabilir. Örneğin, `Student` ve `Teacher` sınıfları `Person` sınıfından türetilebilir.
 
-### Example Usage
+### Örnek Kullanım
 
 ```csharp
-Product laptop = new Product();
-laptop.Name = "Laptop";
-laptop.Price = 10000;
-laptop.Stock = 10;
+// Person sınıfından bir nesne oluşturuyoruz.
+Person person = new Person();
 
-Product phone = new Product();
-phone.Name = "Telefon";
-phone.Price = 500;
-phone.Stock = 20;
+// Kişinin adını, soyadını ve doğum tarihini atıyoruz.
+person.Ad = "Ahmet";
+person.Soyad = "Yılmaz";
+person.DogumTarihi = new DateTime(1995, 5, 12);
 
-laptop.DisplayProduct();
-phone.DisplayProduct();
-
-laptop.SellProduct(2);
-phone.SellProduct(5);
-
-laptop.RestockProduct(5);
-phone.RestockProduct(10);
+// Kişinin bilgilerini ekrana yazdırıyoruz.
+Console.WriteLine($"Ad: {person.Ad}, Soyad: {person.Soyad}, Doğum Tarihi: {person.DogumTarihi.ToShortDateString()}");
 ```
 
 ## Explanation
 
-### 1. Product Class
+### Ad Property
+Kişinin adı için `Ad` property'si oluşturulmuştur. Bu property, `get` ve `set` metotlarıyla ad bilgisini almak ve atamak için kullanılır.
 
-This class models the product and includes methods to interact with it. 
-The properties are encapsulated with validation to ensure the correctness of product data.
+### Soyad Property
+Kişinin soyadı için `Soyad` property'si oluşturulmuştur. `get` ve `set` metotlarıyla soyad bilgisi alınabilir ve atanabilir.
 
-#### Methods Breakdown:
-
-- `DisplayProduct()`: This method outputs the product's name, price, and stock to the console.
-  
-- `SellProduct(int quantity)`: This method decreases the stock if the requested quantity is available. It prints whether the sale was successful or if there was insufficient stock.
-
-- `RestockProduct(int quantity)`: This method increases the stock by the specified amount and outputs the new stock value.
-
-### 2. Main Method
-
-In the `Main` method, two products (laptop and phone) are created, displayed, sold, and restocked.
-
-- **Create Products:** Objects `laptop` and `phone` are instantiated from the `Product` class.
-- **Display:** The details of both products are displayed using the `DisplayProduct` method.
-- **Sell Products:** Both products are sold using the `SellProduct` method, with the stock reducing accordingly.
-- **Restock:** Both products are restocked using the `RestockProduct` method, with the stock increasing.
+### Doğum Tarihi Property
+Doğum tarihi için `DogumTarihi` property'si oluşturulmuştur. `DateTime` tipindedir ve kişinin doğum tarihini tutar.
 
 ## Output
 
-The output of the program is displayed in the console and shows the product details, successful sales, and stock updates.
-
-### Example Output
-
-```
-Ürün Laptop, Fiyat 10000, Stock 10
-Ürün Telefon, Fiyat 500, Stock 20
-2 adet Laptop satıldı. Kalan stok 8
-5 adet Telefon satıldı. Kalan stok 15
-5 adet Laptop stoğa eklendi. Güncel stok miktarı 13
-10 adet Telefon stoğa eklendi. Güncel stok miktarı 25
+```plaintext
+Ad: Ahmet, Soyad: Yılmaz, Doğum Tarihi: 12.05.1995
 ```
 
 ## License
 
-This project is open-source and free to use.
+Bu proje MIT Lisansı ile lisanslanmıştır.
