@@ -14,7 +14,7 @@ namespace _4.week_11_PRATIK_encapsulation_car
             car1.DoorCount = 4;  // Geçerli kapı sayısı
             car1.DisplayCarInfo();
 
-            // Hatalı kapı sayısı atanıyor
+            // Hatalı kapı sayısı atanıyor 
             Car car2 = new Car();
             car2.Brand = "Ford";
             car2.Model = "Connect";
