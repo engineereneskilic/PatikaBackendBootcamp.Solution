@@ -72,5 +72,7 @@ namespace _4.week_10_inheritance
                 Console.WriteLine($"Maaş: {Maas} TL");
             }
         }
+
+
     }
 }
