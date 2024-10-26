@@ -73,5 +73,7 @@ namespace _4.week_11_polymorphism
                 return (Genişlik * Yükseklik) / 2;
             }
         }
+
+
     }
 }
