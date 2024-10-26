@@ -61,7 +61,7 @@ namespace _4.week_11_PRATIK_abstraction
             // Yazılım Geliştirici nesnesi oluşturuluyor
             YazilimGelistirici yazilimci = new YazilimGelistirici
             {
-                Ad = "Enes",
+                Ad = "Enes", 
                 Soyad = "Kılıç",
                 Departman = "Yazılım Geliştirme"
             };
