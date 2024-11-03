@@ -64,7 +64,7 @@ namespace _4.week_KAPANİS_TeknolojiMagzasi
                     Console.WriteLine("Başka bir ürün üretmek ister misiniz? (E/H): ");
                     continueProducing = Console.ReadLine().ToUpper() == "E";
                 }
-
+                Console.Clear();
                 Console.WriteLine("İyi günler dileriz!");
                 Console.ReadKey();
             }

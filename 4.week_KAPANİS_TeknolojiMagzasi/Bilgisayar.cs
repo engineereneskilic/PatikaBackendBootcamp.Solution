@@ -41,5 +41,9 @@ namespace _4.week_KAPANİS_TeknolojiMagzasi
             Console.WriteLine($"USB Giriş Sayısı: {UsbPortCount}");
             Console.WriteLine($"Bluetooth Var mı?: {HasBluetooth}");
         }
+
+
+
+
     }
 }

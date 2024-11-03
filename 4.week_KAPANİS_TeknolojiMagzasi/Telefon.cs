@@ -23,5 +23,7 @@ namespace _4.week_KAPANİS_TeknolojiMagzasi
             base.PrintInfo(); // Temel bilgileri yazdırır
             Console.WriteLine($"Türkiye Lisanslı mı?: {IsTurkishLicensed}");
         }
+
+
     }
 }
