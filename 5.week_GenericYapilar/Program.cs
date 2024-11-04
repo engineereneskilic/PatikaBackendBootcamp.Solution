@@ -20,6 +20,28 @@ namespace _5.week_GenericYapilar
 
             DisplayType(circle);
 
+            GenericClass<int> genericClass = new GenericClass<int>(4);
+
+            Stack<int> stack = new Stack<int>();
+
+            Console.WriteLine(stack.IsEmpty());
+
+            stack.Push(1);
+            stack.Push(2);
+            stack.Push(3);
+
+            Console.WriteLine(stack.Pop());
+            Console.WriteLine(stack.Peek());
+            Console.WriteLine(stack.Pop());
+
+            Stack<string> strStack = new Stack<string>();
+
+            Console.WriteLine(strStack.Pop());
+            Console.WriteLine(strStack.Peek());
+            Console.WriteLine(strStack.Pop());
+
+            Repository<Student> student = new Repository<Student>();   
+            
 
         }
 
@@ -81,7 +103,15 @@ namespace _5.week_GenericYapilar
         public interface IEntity
         {
 
+
+
         }
+
+
+
+
+
+
 
     }
 }
