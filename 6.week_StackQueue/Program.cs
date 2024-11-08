@@ -42,7 +42,7 @@ namespace _6.week_StackQueue
 
             foreach (string item in menu)
             {
-
+                
 
 
             }
