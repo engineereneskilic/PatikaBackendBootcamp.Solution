@@ -3,15 +3,11 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>_7.week_SALI_Sorgular5</RootNamespace>
+    <RootNamespace>_8.Hafta_SALI</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Npgsql" Version="8.0.5" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\7.week_SALI_DataLIB\7.week_SALI_DataLIB.csproj" />
   </ItemGroup>
 
 </Project>
