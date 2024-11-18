@@ -84,7 +84,7 @@ The `Program` class is the main entry point of the application. Here's an overvi
    };
    ```
 
-2. **Filtering Comedy Series**  
+# 2. **Filtering Comedy Series**  
    After creating the list of series, we filter out only the **Komedi** type series into a new list of **KomediDizi** objects.
 
    ```csharp
