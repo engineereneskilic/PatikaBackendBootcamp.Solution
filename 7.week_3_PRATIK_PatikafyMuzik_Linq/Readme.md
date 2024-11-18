@@ -1,5 +1,5 @@
 
-# Singers and Album Information
+# Singers and Album Information - Patikafy Music
 
 This project is a C# console application that performs various queries on a list of singers. It allows users to filter, sort, and analyze singer data based on specific criteria.
 
