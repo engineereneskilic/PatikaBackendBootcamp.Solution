@@ -7,7 +7,7 @@ namespace _7.week_9_nuget
     {
         static void Main(string[] args)
         {
-            string connectionString...
+            
             
             
 

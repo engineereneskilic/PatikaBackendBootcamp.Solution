@@ -1,0 +1,49 @@
+﻿@model CustomerOrderViewModel
+@{
+    Layout = "_Layout";
+}
+<!-- View Başlığı -->
+<h1>Customer Orders</h1>
+
+<!-- Müşteri Bilgileri -->
+<div>
+    <h2>Customer Information</h2>
+    <p><strong>ID:</strong> @Model.Customer.CustomerID</p>
+    <p><strong>Name:</strong> @Model.Customer.FirstName @Model.Customer.LastName</p>
+    <p><strong>Email:</strong> @Model.Customer.Email</p>
+</div>
+
+<!-- Sipariş Tablosu -->
+<div>
+    <h2>Orders</h2>
+    <table border="1" style="width: 100%; text-align: left;">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Orders != null && Model.Orders.Any())
+            {
+                foreach (var order in Model.Orders)
+                {
+                    <tr>
+                        <td>@order.OrderID</td>
+                        <td>@order.ProductName</td>
+                        <td>@order.Price.ToString("C")</td>
+                        <td>@order.Quantity</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4" style="text-align: center;">No orders available.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
