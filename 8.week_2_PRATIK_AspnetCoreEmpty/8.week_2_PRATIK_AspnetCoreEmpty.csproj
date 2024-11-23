@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>_8.week_2_PRATIK_AspnetCoreEmpty</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Controlllers\" />
+    <Folder Include="Models\" />
+    <Folder Include="wwwroot\" />
+    <Folder Include="Views\" />
+  </ItemGroup>
+
+</Project>
