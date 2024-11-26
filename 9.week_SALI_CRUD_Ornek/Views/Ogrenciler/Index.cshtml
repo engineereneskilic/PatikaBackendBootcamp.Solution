@@ -1,0 +1,29 @@
+﻿@model List<Ogrenci>
+@{
+    ViewData["Title"] = "Öğrenci Listesi";
+}
+
+<h1>Ogrenciler</h1>
+<a class="btn btn-primary" asp-controller="Ogrenciler" asp-action="Yeni">Yeni Öğrenci</a>
+
+<table class="table">
+    <thead>
+        <th>ID</th>
+        <th>AD</th>
+        <th>DOĞUM YILI</th>
+        <th>TUTTUĞU</th>
+    </thead>
+        <tbody>
+
+            @foreach (Ogrenci ogrenci in Model)
+            {
+                <tr>
+                    <td>@ogrenci.Id</td>
+                    <td>@ogrenci.Ad</td>
+                    <td>@ogrenci.DogumYili</td>
+                    <td>@ogrenci.Takim</td>
+                </tr>
+
+            }
+        </tbody>
+</table>
