@@ -12,7 +12,7 @@
             new Ogrenci { Id = 1, Ad = "Hakan", DogumYili= 1995, Takim = "Beşiktaş" },
             new Ogrenci { Id = 1, Ad = "Pelin", DogumYili= 1998, Takim = "Denizlispor" }
 
-
+         
         };
 
 

@@ -12,7 +12,7 @@ namespace _9.week_SALI_CRUD_Ornek.Models
 
         public string? Ad { get; set; } = "";
 
-        public string Takim { get; set; } = "";
+        public string TakimId { get; set; };
 
         public int? DogumYili { get; set; }
     }
