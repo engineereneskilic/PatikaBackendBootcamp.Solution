@@ -1,0 +1,6 @@
+@_11.week_CodeFirst_04_HostAddress = http://localhost:5105
+
+GET {{_11.week_CodeFirst_04_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
