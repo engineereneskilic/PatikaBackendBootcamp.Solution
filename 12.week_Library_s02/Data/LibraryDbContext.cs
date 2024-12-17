@@ -5,7 +5,15 @@ using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 namespace _12.week_Library_s02.Data
 {
     public class LibraryDbContext : DbContext
+    
+     
     {
+        public LibraryDbContext(DbContextOptions<LibraryDbContext> options) : base(options) 
+        {
+            //devam et
+        }
+
+
         public  DbSet<Book> Books { get; set; }
 
         public DbSet<Review> Reviews { get; set; }
