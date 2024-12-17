@@ -8,29 +8,14 @@ namespace _11.week_PRATIK_CilginMuzisyenler.Controllers
     [ApiController]
     public class MusiciansController : ControllerBase
     {
-        // Static data simulating a database.
-        // List of musicians with initial dummy data.
-        private static List<Musician> musicians = new List<Musician>
-        {
-            new Musician { Id = 1, Name = "Ahmet Çalgı", Profession = "Ünlü Çalgı Çalar" , FunTrait="Her zaman yanlış nota çalar, ama çok eğlenceli" },
-            new Musician { Id = 2, Name = "Zeynep Melodi", Profession = "Popüler Melodi Yazarı", FunTrait="Şarkıları yanlış anlaşılır ama çok popüler"},
-            new Musician { Id = 2, Name = "Cemil Akor", Profession = "Çılgın Akorist", FunTrait="Akorları sık değiştirir, ama şaşırtıcı derecede yetenekli"},
-            new Musician { Id = 2, Name = "Fatma Nota", Profession = "Sürpriz Nota Üreticisi", FunTrait = "Nota üretirken sürekli sürprizler hazırlar"},
-            new Musician { Id = 2, Name = "Hasan Ritim", Profession = "Ritim Canavarı", FunTrait = "Her ritmi kendi tarzında yapar, hiç uymaz ama komiktir"},
-            new Musician { Id = 2, Name = "Elif Armoni", Profession = "Armoni Ustası", FunTrait = "Armonilerini bazen yanlış çalar, ama çok yaratıcıdır"},
-            new Musician { Id = 2, Name = "Ali Perde", Profession = "Perde Uygulayıcı", FunTrait = "Her perdeyi farklı şekilde çalar, her zaman sürprizlidir"},
-            new Musician { Id = 2, Name = "Ayşe Rezonans", Profession = "Rezonans Uzmanı", FunTrait = "Rezonans konusunda uzman, ama bazen çok gürültü çıkarır"},
-            new Musician { Id = 2, Name = "Murat Ton", Profession = "Tonlama Meraklısı", FunTrait = "Tonlamalarındaki farklılıklar bazen komik, ama oldukça ilginç"},
-            new Musician { Id = 2, Name = "Selin Akor", Profession = "Akor Sihirbazı", FunTrait = "Akorlar değiştiğinde bazen sihirli bir hava yaratır"}
-
-        };
+       
 
         //GET: api/musicians
         // Retrieves all musicians from the static list.
         [HttpGet]
         public ActionResult<IEnumerable<Musician>> GetAllMusicians()
         {
-            return Ok(musicians);
+            return Ok(Data.musicians);
         }
 
 
@@ -39,7 +24,7 @@ namespace _11.week_PRATIK_CilginMuzisyenler.Controllers
         [HttpGet("search")]
         public ActionResult<IEnumerable<Musician>> SearchMusicians([FromQuery] string name)
         {
-            var result = musicians.Where(m => m.Name.Contains(name)).ToList();
+            var result = Data.musicians.Where(m => m.Name.Contains(name)).ToList();
             if (!result.Any())
             {
                 return NotFound($"No musicians found with name containing '{name}'.");
@@ -55,7 +40,7 @@ namespace _11.week_PRATIK_CilginMuzisyenler.Controllers
         [HttpGet("id")]
         public ActionResult<Musician> GetMusicianById(int id)
         {
-            var musician = musicians.FirstOrDefault(m => m.Id == id);
+            var musician = Data.musicians.FirstOrDefault(m => m.Id == id);
 
             if(musician == null)
             {
@@ -74,8 +59,8 @@ namespace _11.week_PRATIK_CilginMuzisyenler.Controllers
             if(newMusician == null || string.IsNullOrWhiteSpace(newMusician.Name))
                 return BadRequest("Invalid musician data.");
 
-            newMusician.Id = musicians.Max(m => m.Id) + 1;
-            musicians.Add(newMusician);
+            newMusician.Id = Data.musicians.Max(m => m.Id) + 1;
+            Data.musicians.Add(newMusician);
 
             return CreatedAtAction(nameof(GetMusicianById), new { id = newMusician.Id }, newMusician);
         }
@@ -86,7 +71,7 @@ namespace _11.week_PRATIK_CilginMuzisyenler.Controllers
         [HttpPut("{id}")]
         public ActionResult UpdateMusician(int id, [FromBody] Musician updateMusician)
         {
-            var musician = musicians.FirstOrDefault(m => m.Id == id);
+            var musician = Data.musicians.FirstOrDefault(m => m.Id == id);
 
             if(musician == null)
             {
@@ -111,7 +96,7 @@ namespace _11.week_PRATIK_CilginMuzisyenler.Controllers
         [HttpPatch("{id}")]
         public ActionResult UpdateMusicianPartial(int id, [FromBody] string newFunTrait)
         {
-            var musician = musicians.FirstOrDefault(m => m.Id == id);
+            var musician = Data.musicians.FirstOrDefault(m => m.Id == id);
 
             if(musician == null)
             {
@@ -133,12 +118,12 @@ namespace _11.week_PRATIK_CilginMuzisyenler.Controllers
         // Deletes a musician record by ID.
         public ActionResult DeleteMusician(int id)
         {
-            var musucian = musicians.FirstOrDefault(m => m.Id == id);
+            var musucian = Data.musicians.FirstOrDefault(m => m.Id == id);
 
             if (musucian == null)
                 return NotFound($"Musician with ID {id} not found");
 
-            musicians.Remove(musucian);
+            Data.musicians.Remove(musucian);
             return NoContent();
         }
     }
