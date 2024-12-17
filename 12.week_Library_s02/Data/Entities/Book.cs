@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace _12.week_Library_s02.Data.Entities
 {
     [Table("Books")]
-    [Microsoft.EntityFrameworkCore.Index(nameof(Author),IsUnique = true)]
+    [Microsoft.EntityFrameworkCore.Index(nameof(Author), IsUnique = true)]
     public class Book
     {
         [Key]
@@ -15,9 +15,9 @@ namespace _12.week_Library_s02.Data.Entities
         [StringLength(100)]
         public string Title { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string Author { get; set; }
+        //[Required]
+        //[StringLength(50)]
+        //public string Author { get; set; }
 
 
         public int PublicationYear { get; set; }
@@ -33,7 +33,21 @@ namespace _12.week_Library_s02.Data.Entities
 
 
 
+
+
         public List<Review> Reviews { get; set; }
+
+
+        public BookDetail BookDetail { get; set; }
+
+
+        public int CategoryId { get; set; }
+
+        
+        public Category Category { get; set; }
+
+
+        public List<Author> Authors { get; set; }
 
     }
 }
