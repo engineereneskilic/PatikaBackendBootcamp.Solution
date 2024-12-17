@@ -1,4 +1,5 @@
 ﻿using _11.week_ApiProjectStructure_01.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace _11.week_ApiProjectStructure_01.Controllers
@@ -23,7 +24,7 @@ namespace _11.week_ApiProjectStructure_01.Controllers
         }
 
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int:min(1)}",Name = "GetProductById")]
         public IActionResult Get(int id)
         {
             var product = _products.FirstOrDefault(x => x.Id == id);
@@ -37,6 +38,43 @@ namespace _11.week_ApiProjectStructure_01.Controllers
 
         }
 
+        [HttpGet("featured",Order = 1)]
+        public IActionResult GetFeaturedProducts()
+        {
+
+        }
+
+        [HttpGet("search")]
+        // search?keyword=deneme?page?1
+        public IActionResult Search([FromQuery] string keyword, [FromQuery] int? page = 1)
+        {
+            
+        }
+        [HttpGet("search/{keyword:alpha:minlength(3)}")]
+        // search?keyword=deneme?page?1
+        public IActionResult Search(string keyword)
+        {
+
+        }
+
+        [HttpPatch["{id}"]]
+        public IActionResult PartialUpdateProduct(int id, [FromBody] JsonPatchDocument<Product> patchDocument)
+        {
+
+        }
+
+        [HttpGet("category/{categoryName}")] 
+        public IActionResult GetProductsByCategory(string categoryName)
+        {
+
+        }
+
+        [HttpGet("date/{date:datetime}")]
+        public IActionResult GetProductsByDate(DateTime dateTime)
+        {
+
+        }
+
         [HttpPost]
         public IActionResult Post([FromBody] Product product)
         {
@@ -44,7 +82,9 @@ namespace _11.week_ApiProjectStructure_01.Controllers
             product.Id = id;
             _products.Add(product);
 
-            return CreatedAtAction(nameof(Get),new { id = product.Id },product); // Htpp 201
+
+            return CreatedAtRoute("GetProductById", new { id = product.Id },product);
+            //return CreatedAtAction(nameof(Get),new { id = product.Id },product); // Htpp 201
         }
 
         [HttpPut]

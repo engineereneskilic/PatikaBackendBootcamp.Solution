@@ -1,0 +1,6 @@
+@_11.week_PRATIK_CilginMuzisyenler_HostAddress = http://localhost:5236
+
+GET {{_11.week_PRATIK_CilginMuzisyenler_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

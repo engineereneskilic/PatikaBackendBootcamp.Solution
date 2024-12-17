@@ -1,0 +1,6 @@
+@_11.week_GalacticTour_03_HostAddress = http://localhost:5152
+
+GET {{_11.week_GalacticTour_03_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
