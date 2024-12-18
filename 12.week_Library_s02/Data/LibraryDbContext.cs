@@ -6,10 +6,10 @@ namespace _12.week_Library_s02.Data
 {
     public class LibraryDbContext : DbContext
     {
-        public LibraryDbContext(DbContextOptions<LibraryDbContext> options) : base(options) 
+        public LibraryDbContext(DbContextOptions<LibraryDbContext> options) : base(options)
         {
-            
-           
+
+
 
         }
 
@@ -19,7 +19,7 @@ namespace _12.week_Library_s02.Data
         }
 
 
-        public  DbSet<Book> Books { get; set; }
+        public DbSet<Book> Books { get; set; }
 
         public DbSet<Review> Reviews { get; set; }
 
@@ -51,7 +51,14 @@ namespace _12.week_Library_s02.Data
                     entity.HasMany(e => e.Authors) // bir yazarın birden çok kitabı olabilir
                           .WithMany(e => e.Books) // bir kitabın birden çok yazarı olabilir
                           .UsingEntity(e => e.ToTable("BookAtAuthors")); // ara tablo
+
+
                 });
+
+            //modelBuilder.Entity<Book>()
+            //    .HasOne(b => b.Authors) // her kitabın bir yazarı vardır.
+            //    .WithMany(b => b.books) // bir yazarın birden fazla kitabı olabilir
+            //    .HasForeignKey(b => b.AuthorId); // kitapların yazarı AuthorId ile belirlenir
 
             modelBuilder.Entity<Category>(entity =>
             {
@@ -71,7 +78,7 @@ namespace _12.week_Library_s02.Data
 
 
 
-            
+
         }
     }
 }
