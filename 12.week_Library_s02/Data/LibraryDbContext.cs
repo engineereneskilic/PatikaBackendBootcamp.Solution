@@ -5,18 +5,25 @@ using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 namespace _12.week_Library_s02.Data
 {
     public class LibraryDbContext : DbContext
-    
-     
     {
         public LibraryDbContext(DbContextOptions<LibraryDbContext> options) : base(options) 
         {
-            //devam et
+            
+           
+
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer($"Server=DESKTOP-HDU6E5A;Database=Library;Trusted_Connection=true;");
         }
 
 
         public  DbSet<Book> Books { get; set; }
 
         public DbSet<Review> Reviews { get; set; }
+
+        public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

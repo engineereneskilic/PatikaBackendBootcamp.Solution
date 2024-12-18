@@ -32,9 +32,6 @@ namespace _12.week_Library_s02.Data.Entities
         public DateTime? LastBorrowedDate { get; set; }
 
 
-
-
-
         public List<Review> Reviews { get; set; }
 
 
