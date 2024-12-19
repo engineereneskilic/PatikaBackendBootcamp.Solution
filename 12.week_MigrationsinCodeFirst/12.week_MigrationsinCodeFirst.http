@@ -1,0 +1,6 @@
+@_12.week_MigrationsinCodeFirst_HostAddress = http://localhost:5170
+
+GET {{_12.week_MigrationsinCodeFirst_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
