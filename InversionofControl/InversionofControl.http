@@ -1,0 +1,6 @@
+@InversionofControl_HostAddress = http://localhost:5216
+
+GET {{InversionofControl_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
