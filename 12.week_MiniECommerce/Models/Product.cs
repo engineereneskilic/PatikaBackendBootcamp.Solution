@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace _12.week_MiniECommerce.Models
 {
@@ -15,9 +16,12 @@ namespace _12.week_MiniECommerce.Models
         
         public int CategoryID { get; set; }
         [ForeignKey(nameof(CategoryID))]
-        public Category Category { get; set; }
+        public virtual Category Category { get; set; }
 
 
         public int StockQuantity { get; set; }
+
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
     }
 }

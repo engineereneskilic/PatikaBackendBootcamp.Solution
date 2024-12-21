@@ -21,7 +21,10 @@ namespace _12.week_MiniECommerce.Controllers
         [HttpGet]
         public async Task<ActionResult<Order>> GetById(int id)
         {
-            var order = _context.Orders.FirstOrDefaultAsync(o => o.Id == id);
+            var order = _context.Orders.Include(o => o.Customer)
+                                       .Include(o => o.OrderDetails)
+                                       .ThenInclude(od => od.Product)
+                                       .FirstOrDefaultAsync(o => o.Id == id);
 
             if (order == null) NotFound();
 

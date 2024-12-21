@@ -74,7 +74,8 @@ namespace _12.week_MiniECommerce.Controllers
                                         Id = c.Id,
                                         Email = c.Email,
                                         FullName = $"{c.FirstName} {c.LastName}",
-                                        SignUpDate = c.SignUpDate
+                                        SignUpDate = c.SignUpDate,
+                                        Orders = c.Orders.ToList()
                                     }).ToListAsync();
 
 

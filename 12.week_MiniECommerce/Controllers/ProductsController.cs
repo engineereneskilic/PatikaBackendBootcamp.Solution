@@ -1,8 +1,12 @@
 ﻿using _12.week_MiniECommerce.Data;
 using _12.week_MiniECommerce.Dto;
+using _12.week_MiniECommerce.Models;
+using Azure;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 
 namespace _12.week_MiniECommerce.Controllers
 {
@@ -46,6 +50,68 @@ namespace _12.week_MiniECommerce.Controllers
 
                 return StatusCode(500, "Ürün Güncellenirken Hata Oluştu");
             }
+           
         }
+
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> UpdatePrice(int id, [FromBody] JsonPatchDocument<Product> patchDocument)
+        {
+            if (patchDocument is null) return BadRequest("patch döküman boş olamaz");
+
+            var product = await _context.Products.FindAsync(id);
+
+            if (product == null)
+            {
+                return NotFound("Ürün bulunamadı");
+            }
+
+            try
+            {
+                patchDocument.ApplyTo(product);
+
+                if (product.Price <= 0)
+                {
+                    return BadRequest("Fiyat sıfır veya sıfırdan küçük olamaz");
+                }
+                await _context.SaveChangesAsync();
+
+                return Ok(product);
+
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                var entry = ex.Entries.Single();
+
+                var clientValues = entry.Entity as Product;
+
+                var databaseEntry = entry.GetDatabaseValues();
+
+                if(databaseEntry != null)
+                {
+                    return NotFound("Ürün silinmiş");
+                }
+
+                var databaseValues = databaseEntry.ToObject() as Product;
+                ModelState.AddModelError(string.Empty, "bu ürün fiyatı daha önce başka bir kullanıcı tarafından değiştirilmiştir.");
+
+
+                return Conflict(new
+                {
+                    Message = "Conflict oluştu. Ürün başka bir kullanıcı tarafından güncellendi",
+                    CurrentDatabaseValues = databaseValues,
+                    YourAttempedValues = clientValues
+                });
+
+
+            }
+           
+            catch(Exception ex)
+            {
+                return StatusCode(500, "Hata oluştu");
+            }
+        }
+
+
+
     }
 }

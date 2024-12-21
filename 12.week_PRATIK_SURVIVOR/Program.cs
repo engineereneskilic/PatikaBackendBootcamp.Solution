@@ -1,14 +1,6 @@
-using _12.week_MiniECommerce.Data;
-using Microsoft.EntityFrameworkCore;
-
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container. Dependency Injection
-builder.Services.AddDbContext<ECommerceContext>(options => options.UseLazyLoadingProxies()
-                                                                  .UseSqlServer(builder.Configuration.GetConnectionString("Default"))
-
-
-)) 
+// Add services to the container.
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -23,6 +15,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
