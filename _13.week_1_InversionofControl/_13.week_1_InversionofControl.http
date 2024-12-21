@@ -1,0 +1,6 @@
+@_13.week_1_InversionofControl_HostAddress = http://localhost:5168
+
+GET {{_13.week_1_InversionofControl_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

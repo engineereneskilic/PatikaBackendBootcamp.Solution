@@ -1,0 +1,6 @@
+@_13.week_2_PRATIK_DependencyInjection_TeacherClassroom_HostAddress = http://localhost:5193
+
+GET {{_13.week_2_PRATIK_DependencyInjection_TeacherClassroom_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
