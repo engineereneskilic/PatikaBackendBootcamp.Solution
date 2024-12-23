@@ -1,0 +1,6 @@
+@_13.week_1_Versioning_HostAddress = http://localhost:5277
+
+GET {{_13.week_1_Versioning_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

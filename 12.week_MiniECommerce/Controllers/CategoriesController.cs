@@ -1,5 +1,6 @@
 ﻿using _12.week_MiniECommerce.Data;
 using _12.week_MiniECommerce.Models;
+using _12.week_PRATIK_SURVIVOR.DTos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +19,8 @@ namespace _12.week_MiniECommerce.Controllers
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(typeof(CategoryDTO),StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<Category>> GetById(int id)
         {
             var category = _context.Categories.FirstOrDefaultAsync(c => c.Id == id);
@@ -27,7 +30,7 @@ namespace _12.week_MiniECommerce.Controllers
                 return NotFound();
             }
 
-            return Ok(category);
+            return Ok(new CategoryDTO { Id = category.Id, Name = category.Name });
         }
 
 
