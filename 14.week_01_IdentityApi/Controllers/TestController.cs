@@ -13,7 +13,7 @@ namespace _14.week_01_IdentityApi.Controllers
         [HttpGet("test")]
         public IActionResult Get()
         {
-            return Ok(new {message = "Bu bir test mesajıdır. Hoşgeldiniz :)"});
+            return Ok(new {message = "Bu bir test mesajıdır. İçedesiniz Hoşgeldiniz :)"});
         }
 
     }
