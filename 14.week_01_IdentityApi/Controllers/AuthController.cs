@@ -1,5 +1,6 @@
 ﻿using _14.week_01_IdentityApi.Models;
 using _14.week_01_IdentityApi.ViewModels;
+using _14.week_02_PRATIK_Identity.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -10,16 +11,20 @@ namespace _14.week_01_IdentityApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AccountController : ControllerBase
+    public class AuthController : ControllerBase
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
-        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        private readonly IConfiguration _configiration;
+
+        public AuthController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager,RoleManager<IdentityRole> roleManager, IConfiguration configuration)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _roleManager = roleManager;
+            _configiration = configuration;
         }
 
         [HttpPost("register")]
@@ -27,7 +32,7 @@ namespace _14.week_01_IdentityApi.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser
+                var user = new User
                 {
                     UserName = model.Email,
                     Email = model.Email
@@ -56,7 +61,10 @@ namespace _14.week_01_IdentityApi.Controllers
 
                 if (result.Succeeded)
                 {
-                    return Ok(new { message = "Giriş Başarılı" });
+                    var token = Helper.Helper.GenerateJwtToken(model.Email, _configiration["Jwt:Key"], _configiration["Jwt:Issuer"], _configiration["Jwt:Audience"]);
+
+
+                    return Ok(new { message = "Giriş Başarılı", token = token });
                 } else
                 {
                     return Unauthorized(new {message = "Kullanıcı adı veya Şifre Yanlış !"} );
