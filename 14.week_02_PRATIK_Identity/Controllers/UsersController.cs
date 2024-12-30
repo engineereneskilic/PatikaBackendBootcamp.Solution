@@ -26,13 +26,15 @@ namespace _14.week_02_PRATIK_Identity.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var hashedPassword = PasswordHelper.HashPassword(model.Password);
+            // Şifreyi hashle
+            var passwordHasher = new PasswordHasher<User>();
+            var hashedPassword = passwordHasher.HashPassword(null, model.Password);
 
             var user = new User
             {
                 UserName = model.Email,
                 Email = model.Email,
-                Password = hashedPassword
+                PasswordHash = hashedPassword
             };
 
             _context.Users.Add(user);
@@ -55,7 +57,7 @@ namespace _14.week_02_PRATIK_Identity.Controllers
 
             // Şifre doğrulama yapılır
             var passwordHasher = new PasswordHasher<object>();
-            var result = passwordHasher.VerifyHashedPassword(null, user.Password, model.Password);
+            var result = passwordHasher.VerifyHashedPassword(null, user.PasswordHash, model.Password);
 
             if (result == PasswordVerificationResult.Failed)
                 return Unauthorized(new { Message = "Invalid email or password" });
