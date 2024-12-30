@@ -61,7 +61,11 @@ namespace _14.week_01_IdentityApi.Controllers
 
                 if (result.Succeeded)
                 {
-                    var token = Helper.Helper.GenerateJwtToken(model.Email, _configiration["Jwt:Key"], _configiration["Jwt:Issuer"], _configiration["Jwt:Audience"]);
+                    var user = await _userManager.FindByEmailAsync(model.Email);
+
+                    var roles = await _userManager.GetRolesAsync(user);
+
+                    var token = Helper.Helper.GenerateJwtToken(model.Email, _configiration["Jwt:Key"], _configiration["Jwt:Issuer"], _configiration["Jwt:Audience"],roles.ToList());
 
 
                     return Ok(new { message = "Giriş Başarılı", token = token });

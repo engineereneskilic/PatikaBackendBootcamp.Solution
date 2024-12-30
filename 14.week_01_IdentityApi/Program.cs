@@ -15,6 +15,19 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>()
         .AddEntityFrameworkStores<ApplicationDbContext>()
         .AddDefaultTokenProviders();
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("RequiredAdminOrManager",policy =>
+    {
+        policy.RequireRole("Admin", "Manager");
+    });
+
+    options.AddPolicy("RequiredMultipleRoles", policy =>
+    {
+        policy.RequireRole("Premium").RequireRole("Verified");
+    });
+});
+
 builder.Services.AddAuthentication(options =>
                 {
                     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

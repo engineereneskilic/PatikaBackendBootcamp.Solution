@@ -1,0 +1,6 @@
+@_14.week_02_AuthorizationFilters_HostAddress = http://localhost:5030
+
+GET {{_14.week_02_AuthorizationFilters_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
