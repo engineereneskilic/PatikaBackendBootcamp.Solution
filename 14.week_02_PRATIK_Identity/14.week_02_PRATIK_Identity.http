@@ -1,0 +1,6 @@
+@_14.week_02_PRATIK_Identity_HostAddress = http://localhost:5153
+
+GET {{_14.week_02_PRATIK_Identity_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
